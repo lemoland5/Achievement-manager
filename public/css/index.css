@@ -1,0 +1,57 @@
+*{
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body{
+    background: #034;
+}
+
+.container{
+    padding: 5vh;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+}
+header{
+    width: 100%;
+
+    display: flex;
+    place-content: center;
+    
+    color: #fff;
+}
+
+nav{
+    width: 80%;
+
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    flex-wrap:wrap;
+}
+
+section{
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    
+
+    height: 250px;
+    width: 250px;
+    color: white;
+}
+
+.cyberpunk{
+    background: url(/img/cyberpunk_thumbnail.png);
+    background-size: contain;
+}
+
+
+img{
+    width: 250px;
+    height: auto;
+}
