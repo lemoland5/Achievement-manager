@@ -17,10 +17,7 @@ const addAch = async (obj) => {
     const newName = oldName.replaceAll(" ","_");
     const rare = (obj.rare == "1");
 
-    console.log(`rare is ${rare}`);
-
     const define = `const ${newName} = new Achievement({name: "${oldName}", description: "${obj.description}", rare: ${rare}}).save()`;
-
     eval(define); //this is so utterly fucking stupid
     
 }
