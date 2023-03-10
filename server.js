@@ -1,7 +1,10 @@
 const express = require('express');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+    const {dbSetup, Achievement, addAch} = require('./db.js');
 const bodyParser = require('body-parser');
+
 const path = require('path');
+const { globalAgent } = require('http');
 const app = express();
 const port = 3000;
 
@@ -15,19 +18,9 @@ async function main() {
 
     //DATABASE
 
-    await mongoose.connect('mongodb://127.0.0.1:27017/ach');
+    dbSetup();
 
-    const achSchema = new mongoose.Schema({
-        name: String,
-        description: String,
-        rare: Boolean
-    });
 
-    const Achievement = mongoose.model('Achievement', achSchema);
-
-    const seamoth = new Achievement({name: `Personal Propulsion`, description:`Build a Seamoth`, rare: false})
-
-    await seamoth.save();
 
     //SERVER
 
@@ -40,10 +33,9 @@ async function main() {
     app.post('/', (req, res)=>{
         res.status(200);
 
-        //res.sendFile(path.join(__dirname, 'public/html/index.html'));
+        res.sendFile(path.join(__dirname, 'public/html/index.html'));
 
-        res.send(seamoth.name);
-
+        addAch(req.body);
 
         console.log(`${req.ip} connected to '/' using POST`);
     })
@@ -51,7 +43,7 @@ async function main() {
     app.get('/admin', (req, res)=>{
         res.status(200);
         res.sendFile(path.join(__dirname, 'public/html/form.html'));
-        console.log(`${req.ip} connected to '/form' using GET`);
+        console.log(`${req.ip} connected to '/admin' using GET`);
     })
     
     app.listen(port, ()=>{
