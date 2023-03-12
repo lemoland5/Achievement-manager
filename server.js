@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-    const {dbSetup, Achievement, addAch} = require('./db.js');
+    const {dbSetup, Achievement, addAch, safeString} = require('./db.js');
 const bodyParser = require('body-parser');
 
 const path = require('path');
@@ -20,8 +20,6 @@ async function main() {
 
     dbSetup();
 
-
-
     //SERVER
 
     app.get('/', (req, res)=>{
@@ -32,12 +30,14 @@ async function main() {
     
     app.post('/', (req, res)=>{
         res.status(200);
-
         res.sendFile(path.join(__dirname, 'public/html/index.html'));
+        console.log(`${req.ip} connected to '/' using POST`);
+        
+
+
 
         addAch(req.body);
 
-        console.log(`${req.ip} connected to '/' using POST`);
     })
     
     app.get('/admin', (req, res)=>{
@@ -49,5 +49,4 @@ async function main() {
     app.listen(port, ()=>{
         console.log(`Server listening on port ${port}..`);
     })
-
 }
