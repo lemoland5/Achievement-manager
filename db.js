@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const achSchema = new mongoose.Schema({
     name: String,
     description: String,
-    rare: Boolean
+    rare: Boolean,
+    game: String,
+    icon: String
 });
 const Achievement = mongoose.model('Achievement', achSchema);
 
@@ -49,9 +51,11 @@ const addAch = async (obj) => {
     const oldName = obj.name.safeString();
     const newName = obj.name.safeString(1);
     const description = obj.description.safeString();
+    const game = obj.game.safeString();
+    const icon = obj.icon.safeString();
     const rare = (obj.rare == "1");
 
-    const define = `const ${newName} = new Achievement({name: ${oldName}, description: ${description}, rare: ${rare}}).save()`;
+    const define = `const ${newName} = new Achievement({name: ${oldName}, description: ${description}, rare: ${rare}, game: ${game}, icon: ${icon}}).save()`;
     eval(define); //this is so utterly fucking stupid
 }
 

@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const path = require('path');
-const { globalAgent } = require('http');
 const app = express();
 const port = 3000;
 
@@ -26,6 +25,9 @@ async function main() {
         res.status(200);
         res.sendFile(path.join(__dirname, 'public/html/index.html'));
         console.log(`${req.ip} connected to '/' using GET`);
+
+        console.log();
+
     })
     
     app.post('/', (req, res)=>{
@@ -33,9 +35,6 @@ async function main() {
         res.sendFile(path.join(__dirname, 'public/html/index.html'));
         console.log(`${req.ip} connected to '/' using POST`);
         
-
-
-
         addAch(req.body);
 
     })
@@ -44,6 +43,15 @@ async function main() {
         res.status(200);
         res.sendFile(path.join(__dirname, 'public/html/form.html'));
         console.log(`${req.ip} connected to '/admin' using GET`);
+    })
+
+    app.post('/admin', (req, res)=>{
+        res.status(200);
+        res.sendFile(path.join(__dirname, 'public/html/form.html'));
+       //res.render(`https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/264710/404e5925552ad55132869fd9793e573afb3966a8.jpg`);
+        console.log(`${req.ip} connected to '/admin' using POST`);
+
+       addAch(req.body);
     })
     
     app.listen(port, ()=>{
