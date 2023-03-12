@@ -5,6 +5,7 @@ const achSchema = new mongoose.Schema({
     name: String,
     description: String,
     rare: Boolean,
+    completed: Boolean,
     game: String,
     icon: String
 });
@@ -54,8 +55,9 @@ const addAch = async (obj) => {
     const game = obj.game.safeString();
     const icon = obj.icon.safeString();
     const rare = (obj.rare == "1");
+    const completed = (obj.completed == "1");
 
-    const define = `const ${newName} = new Achievement({name: ${oldName}, description: ${description}, rare: ${rare}, game: ${game}, icon: ${icon}}).save()`;
+    const define = `const ${newName} = new Achievement({name: ${oldName}, description: ${description}, rare: ${rare}, completed: ${completed}, game: ${game}, icon: ${icon}}).save()`;
     eval(define); //this is so utterly fucking stupid
 }
 

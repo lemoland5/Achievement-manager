@@ -26,7 +26,8 @@ header{
 nav{
     margin: 3%;
     display: grid;
-    grid-template-areas: "cyberpunk";
+    grid-template-areas: "cyberpunk subnautica";
+    gap: 20px;
 }
 
 nav > a{
@@ -39,6 +40,8 @@ nav > a{
     align-items: flex-end;
     justify-content: center;
     padding-bottom: 10%;
+
+
 
     border-radius: 20px;
     text-align: center;
@@ -58,6 +61,13 @@ nav > a:hover{
     background-size: contain;
 
     grid-area: "cyberpunk";
+}
+
+.subnautica{
+    background: url(/img/subnautica_thumbnail.png);
+    background-size: contain;
+
+    grid-area: "subnautica";
 }
 
 label{

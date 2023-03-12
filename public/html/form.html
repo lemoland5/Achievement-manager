@@ -11,28 +11,35 @@
 <body>
     <form method="post" action="/">
       <fieldset>
-            <label for="name"> name:</label>
+            <label for="name">Achievement name:</label>
             <input name="name" value="" class="textform"/>
 
             <br>
 
-            <label for="description">description:</label>
-            <input name="description" value="" class="textform" />
+            <label for="description">Achievement description:</label>
+            <input name="description" value="" autocomplete="off" />
 
             <br>
 
-            <label for="rare">rare?:</label>
-            <input name="rare" value="" />
+            <label for="rare">Is achievement rare?:</label>
+            <input name="rare" type="checkbox" value="1" autocomplete="off"/>
 
             <br>
 
-            <label for="game">from:</label>
-            <input name="game" value="" />
+            <label for="completed">Is achievement unlocked?:</label>
+            <input name="completed" type="checkbox" value="1" autocomplete="off"/>
+
+            <br>
+
+            <label for="game">Achievement from:</label>
+            <input name="game" value="" autocomplete="off"/>
 
             <br>
 
             <label for="icon">Link to icon:</label>
-            <input name="icon" value="" />
+            <input name="icon" value="" autocomplete="off"/>
+
+
 
             <button>Add to database</button>
       </fieldset>

@@ -36,6 +36,7 @@ async function main() {
         console.log(`${req.ip} connected to '/' using POST`);
         
         addAch(req.body);
+        //console.log(JSON.stringify(req.body));
 
     })
     
@@ -48,7 +49,6 @@ async function main() {
     app.post('/admin', (req, res)=>{
         res.status(200);
         res.sendFile(path.join(__dirname, 'public/html/form.html'));
-       //res.render(`https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/264710/404e5925552ad55132869fd9793e573afb3966a8.jpg`);
         console.log(`${req.ip} connected to '/admin' using POST`);
 
        addAch(req.body);
