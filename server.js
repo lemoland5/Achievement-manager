@@ -66,6 +66,11 @@ async function main() {
         console.log(`${req.ip} connected to '/subnautica' using GET`);
     })
 
+    app.all('*', (req, res) => {
+        res.status(404);
+        res.render('./404/index.ejs');
+    })
+
         //LISTEN
     app.listen(port, ()=>{
         console.log(`Server listening on port ${port}..`);

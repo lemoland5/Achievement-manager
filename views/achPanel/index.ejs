@@ -1,10 +1,10 @@
 <%-include('head.ejs')%>
 <body>
-    <header>
+    <nav class="topNav">
         <a href="/">
             <h1>AchManager&copy;</h1>
         </a>
-    </header>
+    </nav>
     <div class="container">
         <% doc.forEach(element => { %>
             <%- include('achBox', {ach: element}) %>

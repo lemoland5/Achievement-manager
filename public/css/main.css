@@ -18,8 +18,8 @@ body{
 
 }
 
-header{
-    width: 100%;
+nav{
+    width: 100vw;
     height: 70px;
     background-color: #001622;
     margin: 0;
@@ -31,19 +31,19 @@ header{
     margin-bottom: 25px;
 }
 
-header > a{
+nav > a{
     color: inherit;
     text-decoration: none;
 }
 
-nav{
+main{
     margin: 3%;
     display: grid;
     grid-template-areas: "cyberpunk subnautica";
     gap: 20px;
 }
 
-nav > a{
+main > a{
 
     height: 250px;
     width: 250px;
@@ -64,7 +64,7 @@ nav > a{
     transition: all .2s ease-in-out
 }
 
-nav > a:hover{
+main > a:hover{
     transform: scale(1.1);
 }
 
