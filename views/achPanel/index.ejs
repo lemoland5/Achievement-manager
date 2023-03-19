@@ -1,0 +1,14 @@
+<%-include('head.ejs')%>
+<body>
+    <header>
+        <a href="/">
+            <h1>AchManager&copy;</h1>
+        </a>
+    </header>
+    <div class="container">
+        <% doc.forEach(element => { %>
+            <%- include('achBox', {ach: element}) %>
+        <% }); %>
+    </div>
+</body>
+</html>

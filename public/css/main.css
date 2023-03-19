@@ -5,6 +5,9 @@
 
 body{
     background: #034;
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
 }   
 
 .container{
@@ -17,10 +20,20 @@ body{
 
 header{
     width: 100%;
-    text-align: center;
+    height: 70px;
+    background-color: #001622;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
     color: #fff;
+    font-family: monospace;
+    margin-bottom: 25px;
+}
 
-    margin: 1%;
+header > a{
+    color: inherit;
+    text-decoration: none;
 }
 
 nav{

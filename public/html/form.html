@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>Document</title>
 </head>
 <body>
     <form method="post" action="/">
       <fieldset>
             <label for="name">Achievement name:</label>
-            <input name="name" value="" class="textform"/>
+            <input name="name" value="" class="textform" autocomplete="off"/>
 
             <br>
 
@@ -28,6 +28,11 @@
 
             <label for="completed">Is achievement unlocked?:</label>
             <input name="completed" type="checkbox" value="1" autocomplete="off"/>
+
+            <br>
+
+            <label for="custom">Is achievement custom?:</label>
+            <input name="custom" type="checkbox" value="1" autocomplete="off"/>
 
             <br>
 
