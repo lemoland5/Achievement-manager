@@ -1,0 +1,43 @@
+<%-include('head.ejs')%>
+<body>
+  <%-include('../common/topNav.ejs')%>
+  <form method="post" action="/">
+    <fieldset>
+          <label for="name">Achievement name:</label>
+          <input name="name" value="" class="textform" autocomplete="off"/>
+
+          <br>
+
+          <label for="description">Achievement description:</label>
+          <input name="description" value="" autocomplete="off" />
+
+          <br>
+
+          <label for="rare">Is achievement rare?:</label>
+          <input name="rare" type="checkbox" value="1" autocomplete="off"/>
+
+          <br>
+
+          <label for="completed">Is achievement unlocked?:</label>
+          <input name="completed" type="checkbox" value="1" autocomplete="off"/>
+
+          <br>
+
+          <label for="custom">Is achievement custom?:</label>
+          <input name="custom" type="checkbox" value="1" autocomplete="off"/>
+
+          <br>
+
+          <label for="game">Achievement from:</label>
+          <input name="game" value="Subnautica" autocomplete="off"/>
+
+          <br>
+
+          <label for="icon">Link to icon:</label>
+          <input name="icon" value="" autocomplete="off"/>
+
+          <button>Add to database</button>
+    </fieldset>
+  </form>
+</body>
+</html>

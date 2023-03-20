@@ -25,7 +25,7 @@ async function main() {
         //MAIN
     app.get('/', (req, res)=>{
         res.status(200);
-        res.sendFile(path.join(__dirname, 'public/html/main.html'));
+        res.render('./main/index.ejs');
         console.log(`${req.ip} connected to '/' using GET`);
 
         console.log();
@@ -33,7 +33,7 @@ async function main() {
     
     app.post('/', (req, res)=>{
         res.status(200);
-        res.sendFile(path.join(__dirname, 'public/html/main.html'));
+        res.render('./main/index.ejs');
         console.log(`${req.ip} connected to '/' using POST`);
         
         addAch(req.body);
@@ -42,7 +42,7 @@ async function main() {
         //ADMIN
     app.get('/admin', (req, res)=>{
         res.status(200);
-        res.sendFile(path.join(__dirname, 'public/html/form.html'));
+        res.render('./admin/index.ejs');
         console.log(`${req.ip} connected to '/admin' using GET`);
     })
 
