@@ -48,7 +48,7 @@ async function main() {
 
     app.post('/admin', (req, res)=>{
         res.status(200);
-        res.sendFile(path.join(__dirname, 'public/html/form.html'));
+        res.render('./admin/index.ejs');
         console.log(`${req.ip} connected to '/admin' using POST`);
 
         addAch(req.body);
@@ -60,6 +60,7 @@ async function main() {
         const q = Achievement.find({game: 'Subnautica'}).exec();
 
         q.then((doc)=>{
+            doc.sort((a, b) => b.completed - a.completed);
             res.render('./achPanel/index.ejs', {doc : doc});
         })
 
