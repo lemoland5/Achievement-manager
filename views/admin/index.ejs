@@ -4,48 +4,56 @@
   <form method="post" action="/">
     <fieldset>
           <label for="type">TYPE:</label>
-          <select name="type" id="type">
+          <select name="type" id="type" onclick="reeval()">
             <option value="game">Game</option>
             <option value="achievement">Achievement</option>
           </select>
 
           <br>
 
-          <label for="name">Achievement name:</label>
-          <input name="name" value="" class="textform" autocomplete="off"/>
+          <label for="name" class="name">Achievement name:</label>
+          <input name="name" value="" type="textform" autocomplete="off" 
+          class="name"/>
 
           <br>
 
-          <label for="description">Achievement description:</label>
-          <input name="description" value="" autocomplete="off" />
+          <label for="description" class="description">Achievement description:</label>
+          <input name="description" value="" autocomplete="off" 
+          class="description"/>
 
           <br>
 
-          <label for="rare">Is achievement rare?:</label>
-          <input name="rare" type="checkbox" value="1" autocomplete="off"/>
+          <label for="rare" class="rare">Is achievement rare?:</label>
+          <input name="rare" type="checkbox" value="1" autocomplete="off"
+          class="rare"/>
 
           <br>
 
-          <label for="completed">Is achievement unlocked?:</label>
-          <input name="completed" type="checkbox" value="1" autocomplete="off"/>
+          <label for="completed" class="completed">Is achievement unlocked?:</label>
+          <input name="completed" type="checkbox" value="1" autocomplete="off"
+          class="completed"/>
 
           <br>
 
-          <label for="custom">Is achievement custom?:</label>
-          <input name="custom" type="checkbox" value="1" autocomplete="off"/>
+          <label for="custom" class="custom">Is achievement custom?:</label>
+          <input name="custom" type="checkbox" value="1" autocomplete="off"
+          class="custom"/>
 
           <br>
 
-          <label for="game">Achievement from:</label>
-          <input name="game" value="Subnautica" autocomplete="off"/>
+          <label for="game" class="game">Achievement from:</label>
+          <input name="game" value="Subnautica" autocomplete="off"
+          class="game"/>
 
           <br>
 
-          <label for="icon">Link to icon:</label>
-          <input name="icon" value="" autocomplete="off"/>
+          <label for="icon" class="icon">Link to icon:</label>
+          <input name="icon" value="" autocomplete="off"
+          class="icon"/>
 
           <button>Add to database</button>
     </fieldset>
   </form>
+  <script src="js/admin/formstyle.js"></script>
 </body>
 </html>

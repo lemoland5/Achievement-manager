@@ -54,8 +54,6 @@ main > a{
     justify-content: center;
     padding-bottom: 10%;
 
-
-
     border-radius: 20px;
     text-align: center;
 
@@ -67,7 +65,6 @@ main > a{
 main > a:hover{
     transform: scale(1.1);
 }
-
 
 .cyberpunk{
     background: url(/img/cyberpunk_thumbnail.png);
