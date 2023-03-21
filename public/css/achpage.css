@@ -77,7 +77,7 @@ body{
 }
 
 .Completed_false{
-    opacity: 0.5;
+    opacity: 0.45;
 }
 
 .Completed_false:hover{

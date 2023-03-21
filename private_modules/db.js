@@ -10,7 +10,15 @@ const achSchema = new mongoose.Schema({
     game: {type: String, required: true},
     icon: {type: String, required: true}
 });
+
+const gameSchema = new mongoose.Schema({
+    name: {type: String, required: true},
+    icon: {type: String, required: true},
+    ach_count: {type: Number, required: true},
+})
+
 const Achievement = mongoose.model('Achievement', achSchema);
+const Game = mongoose.model('Game', gameSchema);
 
 const dbSetup = async () => {
     await mongoose.connect('mongodb://127.0.0.1:27017/ach');
@@ -28,8 +36,23 @@ const addAch = async (obj) => {
         ).save();
 }
 
+const addGam = async (obj) => {
+    new Game({
+        name: obj.name, 
+        icon: obj.icon,}
+        ).save();
+}
+
+const add = async (type, obj) => {
+    switch(type){
+        case 'game': addGam(obj);
+        case 'achievement' : addAch(obj);
+    }
+}
+
 module.exports = {
     Achievement,
+    Game,
     dbSetup,
-    addAch
+    add
 }

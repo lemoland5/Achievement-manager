@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-    const {dbSetup, Achievement, addAch} = require('./private_modules/db.js');
+    const {dbSetup, Achievement, add} = require('./private_modules/db.js');
 const bodyParser = require('body-parser');
 const path = require('path');
 
@@ -36,7 +36,10 @@ async function main() {
         res.render('./main/index.ejs');
         console.log(`${req.ip} connected to '/' using POST`);
         
-        addAch(req.body);
+        switch(req.body.type){
+            case 'game': add(JSON.stringify(req.body.type), req.body);
+            case 'achievement' : add(JSON.stringify(req.body.type), req.body);
+        }
     })
     
         //ADMIN
@@ -51,7 +54,10 @@ async function main() {
         res.render('./admin/index.ejs');
         console.log(`${req.ip} connected to '/admin' using POST`);
 
-        addAch(req.body);
+        switch(req.body.type){
+            case 'game': add('Game', req.body);
+            case 'achievement' : add('Achievement', req.body);
+        }
     })
 
         //SUBNAUTICA
