@@ -1,4 +1,4 @@
-<div class="achBox Backdrop_<%-ach.rare%> Completed_<%-ach.completed.toString()%>">
+<div class="achBox Backdrop_<%-ach.rare%> Completed_<%-ach.completed.toString()%>" id="<%-ach._id%>" >
     <img src="<%-ach.icon%>" alt="">
     <p>
         <b><%-ach.name-%></b>
@@ -6,5 +6,13 @@
         <br>
         <%-ach.description-%>
     </p>
+   <!-- <form class="compcheck" action="" method="POST">
+        <input class="hidden" name="id" value="<%-ach._id%>" type="text">
+        <input class="hidden" name="completed" value="1" type="checkbox" checked>
+        <button>Send update</button>
+    </form> -->
+    <button class="triggerbutt" onclick="markComplete(this.id)" id="<%-ach._id%>">
+        THIS IS A YES
+    </button>
 </div>
     

@@ -55,6 +55,8 @@ body{
     border: 3px solid #044;
     padding-left: 20px;
     transition: transform .2s;
+    
+    position: relative;
 
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -63,6 +65,19 @@ body{
 
 .achBox:hover{
     transform: scale(1.04);
+}
+
+.achBox > button{
+    display: none;
+}
+
+.compcheck{
+    display: none;
+
+}
+
+.hidden{
+    display: none;
 }
 
 .Backdrop_true{
@@ -80,8 +95,22 @@ body{
     opacity: 0.45;
 }
 
+.Completed_false > button{
+    opacity: 0.45;
+    display: block;
+}
+
+
 .Completed_false:hover{
     transform: none;
+}
+
+.Completed_false > .compcheck{
+    display: block;
+    position: absolute;
+    left: 90%;
+    bottom: 75%;
+
 }
 
 b{
@@ -95,3 +124,14 @@ b{
     border: 3px solid #001;
     border-radius: 15px;
 }
+
+
+  input[type="checkbox"]  {
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+
+  input[type="checkbox"]:checked  {
+    background-color: #f00;
+  }

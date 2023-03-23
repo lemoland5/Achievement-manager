@@ -50,9 +50,23 @@ const add = async (type, obj) => {
     }
 }
 
+const updateCompleted = async (reqId) => {
+
+    //Achievement.updateOne({ name: obj.name }, { $set: { completed: obj.completed } });
+    
+    const qu = Achievement.findOne({_id:reqId});
+    
+    qu.then((doc)=>{
+        console.log(doc);
+
+        doc.save(doc.completed = true);
+    })
+    
+}
 module.exports = {
     Achievement,
     Game,
     dbSetup,
-    add
+    add,
+    updateCompleted
 }
