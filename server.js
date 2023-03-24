@@ -19,8 +19,6 @@ app.set("view engine", "ejs");
 
 main().catch(err => console.log(err));
 
-
-
 async function main() {
 
     //DATABASE
@@ -35,27 +33,13 @@ async function main() {
         res.render('./main/index.ejs');
         console.log(`${req.ip} connected to '/' using GET`);
     })
-    
-    io.on('connection', (socket) => {
-        console.log('a user connected');
-
-        socket.on('disconnect', () => {
-            console.log('a user disconnected');
-        });
-
-        socket.on('event1', (reqId) => {
-            console.log(`registered event1`);
-            updateCompleted(reqId);
-        });
-    });
-
-
 
     app.post('/', (req, res)=>{
         res.status(200);
         res.render('./main/index.ejs');
         console.log(`${req.ip} connected to '/' using POST`);
         
+            //add
         switch(req.body.type){
             case 'game': add(JSON.stringify(req.body.type), req.body);
             case 'achievement' : add(JSON.stringify(req.body.type), req.body);
@@ -74,6 +58,7 @@ async function main() {
         res.render('./admin/index.ejs');
         console.log(`${req.ip} connected to '/admin' using POST`);
 
+            //add
         switch(req.body.type){
             case 'game': add('Game', req.body);
             case 'achievement' : add('Achievement', req.body);
@@ -93,40 +78,22 @@ async function main() {
         console.log(`${req.ip} connected to '/subnautica' using GET`);
     })
 
-    app.post('/subnautica', (req, res)=>{
-
-        res.status(200);
-
-        const newcom = (req.body.completed == 1);
-
-        //Achievement.updateOne({ name: obj.name }, { $set: { completed: obj.completed } });
-        
-        const qu = Achievement.findOne({_id:req.body.id});
-        
-        qu.then((doc)=>{
-            console.log(doc);
-    
-            doc.save(doc.completed = newcom);
-        })
-
-
-        const q = Achievement.find({game: 'Subnautica'}).exec();
-
-        q.then((doc)=>{
-            doc.sort((a, b) => b.completed - a.completed);
-            res.render('./achPanel/index.ejs', {doc : doc});
-        })
-
-        console.log(`${req.ip} connected to '/subnautica' using POST`);
-    })
-
+        //ALL
     app.all('*', (req, res) => {
         res.status(404);
-        res.render('./404/index.ejs');
+        res.render('./Error/index.ejs');
     })
 
         //LISTEN
     server.listen(port, ()=>{
         console.log(`Server listening on port ${port}..`);
     })
+
+        //EVENTLISTENER
+    io.on('connection', (socket) => {
+        socket.on('event1', (reqId) => {
+            console.log(`registered event1`);
+            updateCompleted(reqId);
+        });
+    });
 }

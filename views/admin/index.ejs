@@ -4,7 +4,7 @@
   <form method="post" action="/">
     <fieldset>
           <label for="type">TYPE:</label>
-          <select name="type" id="type" onclick="reeval()">
+          <select name="type" id="type" onchange="reeval(this.value)">
             <option value="game">Game</option>
             <option value="achievement">Achievement</option>
           </select>

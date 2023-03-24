@@ -125,13 +125,7 @@ b{
     border-radius: 15px;
 }
 
-
-  input[type="checkbox"]  {
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-  }
-
-  input[type="checkbox"]:checked  {
-    background-color: #f00;
-  }
+button{
+    position: absolute;
+    bottom: 103px;
+}

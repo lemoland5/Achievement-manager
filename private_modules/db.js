@@ -1,6 +1,7 @@
 const mongoose = require(`mongoose`);
 const bodyParser = require('body-parser');
 
+    //SCHEMA DECLARATION
 const achSchema = new mongoose.Schema({
     name: {type: String, required: true},
     description: {type: String, required: true},
@@ -17,13 +18,16 @@ const gameSchema = new mongoose.Schema({
     ach_count: {type: Number, required: true},
 })
 
+    //MODEL COMPILATION
 const Achievement = mongoose.model('Achievement', achSchema);
 const Game = mongoose.model('Game', gameSchema);
 
+    //INCREDIBLY NECESSARY OUTSIDE FUNCTION
 const dbSetup = async () => {
     await mongoose.connect('mongodb://127.0.0.1:27017/ach');
 }
 
+    //ADD ACH
 const addAch = async (obj) => {
     new Achievement({
         name: obj.name, 
@@ -36,6 +40,7 @@ const addAch = async (obj) => {
         ).save();
 }
 
+    //ADD GAME
 const addGam = async (obj) => {
     new Game({
         name: obj.name, 
@@ -43,6 +48,7 @@ const addGam = async (obj) => {
         ).save();
 }
 
+    //ADD CONTROLLER
 const add = async (type, obj) => {
     switch(type){
         case 'game': addGam(obj);
@@ -50,19 +56,17 @@ const add = async (type, obj) => {
     }
 }
 
+    //UPDATE ACH
 const updateCompleted = async (reqId) => {
-
-    //Achievement.updateOne({ name: obj.name }, { $set: { completed: obj.completed } });
-    
     const qu = Achievement.findOne({_id:reqId});
-    
     qu.then((doc)=>{
         console.log(doc);
 
         doc.save(doc.completed = true);
     })
-    
 }
+
+    //EXP
 module.exports = {
     Achievement,
     Game,
