@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const { EventEmitter } = require('stream');
 const { Server } = require('socket.io');
-const { CLIENT_RENEG_LIMIT } = require('tls');
 
 const app = express();
 const server = http.createServer(app);
@@ -77,13 +76,21 @@ async function main() {
     })
 
         //SUBNAUTICA
-    app.get('/subnautica', (req, res)=>{
-        res.status(200);
-        const q = Achievement.find({game: 'Subnautica'}).exec();
+    app.post('/achPanel', (req, res)=>{
+
+        console.log(req.body);
+
+        const q = Achievement.find({game: req.body.game}).exec();
 
         q.then((doc)=>{
-            doc.sort((a, b) => b.completed - a.completed);
-            res.render('./achPanel/index.ejs', {doc : doc});
+            if(doc.length == 0){
+                res.status(404);
+                res.render('./error/index.ejs');
+            }
+            else{
+                doc.sort((a, b) => b.completed - a.completed);
+                res.render('./achPanel/index.ejs', {doc : doc});
+            }
         })
 
         console.log(`${req.ip} connected to '/subnautica' using GET`);
@@ -92,7 +99,7 @@ async function main() {
         //ALL
     app.all('*', (req, res) => {
         res.status(404);
-        res.render('./Error/index.ejs');
+        res.render('./error/index.ejs');
     })
 
         //LISTEN

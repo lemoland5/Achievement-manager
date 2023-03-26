@@ -1,4 +1,5 @@
-<a href="/<%-gam.name.toLowerCase()%>" style="background:url(<%-gam.icon%>); 
-    background-size: contain; " >
-    <h2><%-gam.name%></h2>
-</a>
+<form href="/<%-gam.name.toLowerCase()%>" style="background:url(<%-gam.icon%>); 
+    background-size: contain; " method="POST" action="/achPanel" >
+    <input style="display: none;" name="game" value="<%-gam.name%>">
+    <button class="mainButt"><%-gam.name%></button>
+</form>

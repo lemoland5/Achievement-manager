@@ -13,7 +13,7 @@ const reeval = (val) => {
 
         case 'achievement':
             wipe(oper);
-            oper = document.querySelectorAll('.name, .description, .game, .completed, .rare, .custom');
+            oper = document.querySelectorAll('.name, .description, .game, .completed, .rare, .custom, .icon');
             oper.forEach((element)=>{
                 element.style.display = "inline";
             })
