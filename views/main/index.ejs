@@ -3,9 +3,11 @@
     <div class="container">
         <%-include('../common/topNav.ejs')%>
         <main>
-            <a href="/subnautica" class="subnautica">
-                <h2>Subnautica</h2>
-            </a>
+
+            <% doc.forEach(element => { %>
+                <%- include('gamBox', {gam: element}) %>
+            <% }); %>
+
         </main>
     </div>
 </body>

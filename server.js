@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const { EventEmitter } = require('stream');
 const { Server } = require('socket.io');
+const { CLIENT_RENEG_LIMIT } = require('tls');
 
 const app = express();
 const server = http.createServer(app);
@@ -30,7 +31,12 @@ async function main() {
         //MAIN
     app.get('/', (req, res)=>{
         res.status(200);
-        res.render('./main/index.ejs');
+        const q = Game.find({}).exec();
+
+        q.then((doc)=>{
+            res.render('./main/index.ejs', {doc : doc});
+        })
+
         console.log(`${req.ip} connected to '/' using GET`);
     })
 
@@ -56,12 +62,17 @@ async function main() {
     app.post('/admin', (req, res)=>{
         res.status(200);
         res.render('./admin/index.ejs');
+
         console.log(`${req.ip} connected to '/admin' using POST`);
 
             //add
         switch(req.body.type){
-            case 'game': add('Game', req.body);
-            case 'achievement' : add('Achievement', req.body);
+            case 'game': 
+                add('game', req.body);
+                break;
+            case 'achievement' :
+                add('achievement', req.body);
+                break;
         }
     })
 

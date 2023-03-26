@@ -1,7 +1,7 @@
 <%-include('head.ejs')%>
 <body>
   <%-include('../common/topNav.ejs')%>
-  <form method="post" action="/">
+  <form method="post" action="#">
     <fieldset>
           <label for="type">TYPE:</label>
           <select name="type" id="type" onchange="reeval(this.value)">
@@ -50,6 +50,12 @@
           <label for="icon" class="icon">Link to icon:</label>
           <input name="icon" value="" autocomplete="off"
           class="icon"/>
+
+          <br>
+
+          <label for="ach_count" class="icon">Achievements:</label>
+          <input name="ach_count" value="" autocomplete="off"
+          class="ach_count"/>
 
           <button>Add to database</button>
     </fieldset>

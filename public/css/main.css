@@ -15,7 +15,6 @@ body{
     flex-wrap: wrap;
 
     justify-content: center;
-
 }
 
 nav{
@@ -66,19 +65,7 @@ main > a:hover{
     transform: scale(1.1);
 }
 
-.cyberpunk{
-    background: url(/img/cyberpunk_thumbnail.png);
-    background-size: contain;
 
-    grid-area: "cyberpunk";
-}
-
-.subnautica{
-    background: url(/img/subnautica_thumbnail.png);
-    background-size: contain;
-
-    grid-area: "subnautica";
-}
 
 label{
     color: #fff;

@@ -42,17 +42,24 @@ const addAch = async (obj) => {
 
     //ADD GAME
 const addGam = async (obj) => {
+    console.log("REP" + obj.name);
+    
     new Game({
         name: obj.name, 
-        icon: obj.icon,}
-        ).save();
+        icon: obj.icon,
+        ach_count: obj.ach_count }
+        ).save(); 
 }
 
     //ADD CONTROLLER
 const add = async (type, obj) => {
     switch(type){
-        case 'game': addGam(obj);
-        case 'achievement' : addAch(obj);
+        case 'game': 
+            addGam(obj);
+            break;
+        case 'achievement': 
+            addAch(obj);
+            break;
     }
 }
 
@@ -60,8 +67,6 @@ const add = async (type, obj) => {
 const updateCompleted = async (reqId) => {
     const qu = Achievement.findOne({_id:reqId});
     qu.then((doc)=>{
-        console.log(doc);
-
         doc.save(doc.completed = true);
     })
 }

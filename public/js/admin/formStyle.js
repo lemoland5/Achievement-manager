@@ -5,7 +5,7 @@ const reeval = (val) => {
 
         case 'game':
             wipe(oper);
-            oper = document.querySelectorAll('.name, .description');
+            oper = document.querySelectorAll('.name, .icon, .ach_count');
             oper.forEach((element)=>{
                 element.style.display = "inline";
             })
