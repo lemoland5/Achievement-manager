@@ -91,8 +91,8 @@ async function main() {
 
         //EVENTLISTENER
     io.on('connection', (socket) => {
-        socket.on('event1', (reqId) => {
-            console.log(`registered event1`);
+        socket.on('updateComp', (reqId) => {
+            console.log(`Registered updateComp`);
             updateCompleted(reqId);
         });
     });

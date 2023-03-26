@@ -15,7 +15,7 @@
       buttons.forEach((element)=>{
         console.log(element.id);
         element.addEventListener('click', ()=>{
-        socket.emit('event1', element.id);
+        socket.emit('updateComp', element.id);
         })
       })
     </script>

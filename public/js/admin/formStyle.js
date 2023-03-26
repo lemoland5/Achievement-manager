@@ -1,9 +1,32 @@
-/*const reeval = (val) => {
+let oper;
+
+const reeval = (val) => {
     switch(val){
+
+        case 'game':
+            wipe(oper);
+            oper = document.querySelectorAll('.name, .description');
+            oper.forEach((element)=>{
+                element.style.display = "inline";
+            })
+            break;
+
         case 'achievement':
-        let oper = document.querySelectorAll('input');
-        oper.forEach((element)=>{
-            element.style.display = "none";
-        })
+            wipe(oper);
+            oper = document.querySelectorAll('.name, .description, .game, .completed, .rare, .custom');
+            oper.forEach((element)=>{
+                element.style.display = "inline";
+            })
+            break;
+        
     }
-}*/
+}
+
+const wipe = (oper) => {
+    oper = document.querySelectorAll('label, input');
+    oper.forEach((element)=>{
+        element.style.display = "none";
+    })
+}
+
+reeval(document.querySelector('select').value);
