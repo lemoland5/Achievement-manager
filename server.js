@@ -78,8 +78,6 @@ async function main() {
         //SUBNAUTICA
     app.post('/achPanel', (req, res)=>{
 
-        console.log(req.body);
-
         const q = Achievement.find({game: req.body.game}).exec();
 
         q.then((doc)=>{
@@ -88,6 +86,7 @@ async function main() {
                 res.render('./error/index.ejs');
             }
             else{
+                res.status(200);
                 doc.sort((a, b) => b.completed - a.completed);
                 res.render('./achPanel/index.ejs', {doc : doc});
             }

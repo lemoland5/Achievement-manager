@@ -1,10 +1,12 @@
 let oper;
 
 const reeval = (val) => {
+    wipe(oper);
+    document.querySelector('#criticalBR').style.display = "inline";
+
     switch(val){
 
         case 'game':
-            wipe(oper);
             oper = document.querySelectorAll('.name, .icon, .ach_count');
             oper.forEach((element)=>{
                 element.style.display = "inline";
@@ -12,7 +14,6 @@ const reeval = (val) => {
             break;
 
         case 'achievement':
-            wipe(oper);
             oper = document.querySelectorAll('.name, .description, .game, .completed, .rare, .custom, .icon');
             oper.forEach((element)=>{
                 element.style.display = "inline";
@@ -23,7 +24,7 @@ const reeval = (val) => {
 }
 
 const wipe = (oper) => {
-    oper = document.querySelectorAll('label, input');
+    oper = document.querySelectorAll('label, input, br');
     oper.forEach((element)=>{
         element.style.display = "none";
     })
