@@ -15,6 +15,7 @@ const achSchema = new mongoose.Schema({
 const gameSchema = new mongoose.Schema({
     name: {type: String, required: true},
     icon: {type: String, required: true},
+    platform: {type: String, required: true},
     ach_count: {type: Number, required: true},
 })
 
@@ -47,7 +48,8 @@ const addGam = async (obj) => {
     new Game({
         name: obj.name, 
         icon: obj.icon,
-        ach_count: obj.ach_count }
+        ach_count: obj.ach_count,
+        platform: obj.platform }
         ).save(); 
 }
 

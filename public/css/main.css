@@ -38,7 +38,7 @@ nav > a{
 main{
     margin: 3%;
     display: grid;
-    grid-template-areas: "cyberpunk subnautica";
+    grid-template-areas: "box box box";
     gap: 20px;
 }
 

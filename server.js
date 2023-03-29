@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
     const {dbSetup, Achievement, Game, add, updateCompleted} = require('./private_modules/db.js');
 const bodyParser = require('body-parser');
 const path = require('path');
-const { EventEmitter } = require('stream');
 const { Server } = require('socket.io');
 
 const app = express();

@@ -3,11 +3,10 @@
     <div class="container">
         <%-include('../common/topNav.ejs')%>
         <main>
-
             <% doc.forEach(element => { %>
                 <%- include('gamBox', {gam: element}) %>
             <% }); %>
-
+            
         </main>
     </div>
 </body>
