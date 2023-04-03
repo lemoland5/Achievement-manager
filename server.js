@@ -35,13 +35,11 @@ async function main() {
             res.render('./main/index.ejs', {doc : doc});
         })
 
-        console.log(`${req.ip} connected to '/' using GET`);
     })
 
     app.post('/', (req, res)=>{
         res.status(200);
         res.render('./main/index.ejs');
-        console.log(`${req.ip} connected to '/' using POST`);
         
             //add
         switch(req.body.type){
@@ -54,14 +52,11 @@ async function main() {
     app.get('/admin', (req, res)=>{
         res.status(200);
         res.render('./admin/index.ejs');
-        console.log(`${req.ip} connected to '/admin' using GET`);
     })
 
     app.post('/admin', (req, res)=>{
         res.status(200);
         res.render('./admin/index.ejs');
-
-        console.log(`${req.ip} connected to '/admin' using POST`);
 
             //add
         switch(req.body.type){
@@ -91,7 +86,6 @@ async function main() {
             }
         })
 
-        console.log(`${req.ip} connected to '/subnautica' using GET`);
     })
 
         //ALL
@@ -107,6 +101,7 @@ async function main() {
 
         //EVENTLISTENER
     io.on('connection', (socket) => {
+        console.log(`Connected to panel...`);
         socket.on('updateComp', (reqId) => {
             console.log(`Registered updateComp`);
             updateCompleted(reqId);
